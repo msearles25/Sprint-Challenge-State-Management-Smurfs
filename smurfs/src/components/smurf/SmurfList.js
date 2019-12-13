@@ -8,11 +8,10 @@ import { connect } from 'react-redux';
 const SmurfList = props => {
     return (
         <div>
-            {console.log(props.smurfs)}
-            <p>Hello from list</p>
-            {props.smurfs.map(smurf => (
-                <Smurf smurf={smurf}/>
-            // <p>{smurf}</p>
+            {console.log(props)}
+            {props.loading && <p>loading smurfs...</p>}
+            {!props.loading && props.smurfs.map(smurf => (
+                <Smurf smurf={smurf} key={smurf.id}/>
             ))}
         </div>
     )
@@ -20,7 +19,8 @@ const SmurfList = props => {
 
 const mapStateToProps = state => {
     return {
-        smurfs: state.smurfs
+        smurfs: state.smurfs,
+        loading: state.loading
     }
 }
 

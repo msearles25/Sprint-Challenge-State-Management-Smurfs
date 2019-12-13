@@ -1,13 +1,13 @@
-import React, { Component } from "react";
+import React from "react";
 import "./App.css";
 
-import Smurf from './smurf/Smurf';
 import SmurfList from './smurf/SmurfList';
 
 import { connect } from 'react-redux';
 
 // action
 import { fetchSmurf } from './actions/smurfActions';
+import AddSmurfs from "./smurf/AddSmurf";
 
 const App = props => {
 
@@ -18,6 +18,7 @@ const App = props => {
         <div>Start inside of your `src/index.js` file!</div>
         <div>Have fun!</div>
         <button onClick={props.fetchSmurf}>Get the smurfs!</button>
+        <AddSmurfs />
         <SmurfList />
       </div>
     );
