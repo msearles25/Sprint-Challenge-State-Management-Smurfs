@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 
 import SmurfList from './smurf/SmurfList';
@@ -10,6 +10,10 @@ import { fetchSmurf } from './actions/smurfActions';
 import AddSmurfs from "./smurf/AddSmurf";
 
 const App = props => {
+  
+    useEffect(() => {
+      props.fetchSmurf();
+    }, [])
 
     return (
       <div className="App">
@@ -17,7 +21,7 @@ const App = props => {
         
         <AddSmurfs />
 
-        <button onClick={props.fetchSmurf}>Get the smurfs!</button>
+        <button onClick={props.fetchSmurf}>Get updated list</button>
         <SmurfList />
       </div>
     );
